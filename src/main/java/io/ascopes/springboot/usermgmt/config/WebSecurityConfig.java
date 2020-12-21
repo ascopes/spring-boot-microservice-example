@@ -10,6 +10,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.util.matcher.AnyRequestMatcher;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -25,10 +26,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         security
             .csrf().disable()
             .cors().disable()
-            .sessionManagement()
-                .enableSessionUrlRewriting(false)
-                .sessionCreationPolicy(SessionCreationPolicy.NEVER)
-                .disable()
+            .requestCache().disable()
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
             .httpBasic().and()
             .authorizeRequests(http -> http
                 .mvcMatchers("/actuator/health").permitAll()
@@ -37,6 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers(HttpMethod.POST, "/users/**").hasAnyRole(CREATE_USER_ROLE, ADMIN_ROLE)
                 .mvcMatchers(HttpMethod.PUT, "/users/**").hasAnyRole(UPDATE_USER_ROLE, ADMIN_ROLE)
                 .mvcMatchers(HttpMethod.DELETE, "/users/**").hasAnyRole(DELETE_USER_ROLE, ADMIN_ROLE)
+                .requestMatchers(AnyRequestMatcher.INSTANCE).denyAll()
             );
         //@formatter:on
     }

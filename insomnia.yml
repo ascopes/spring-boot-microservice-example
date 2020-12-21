@@ -1,0 +1,358 @@
+type: export
+__export_format: 4
+__export_date: 2020-12-21T17:15:18.778Z
+__export_source: insomnia.desktop.app:v2020.5.1
+resources:
+  - _id: req_29b35c9d82014b378568adc1a31e7f5c
+    parentId: wrk_3c3b0b772cd34cff99a2cf499c2ebb74
+    modified: 1608557366894
+    created: 1608557061991
+    url: "{{scheme}}://{{host}}:{{port}}/{{basePath}}/actuator"
+    name: /actuator
+    description: ""
+    method: GET
+    body: { }
+    parameters: [ ]
+    headers: [ ]
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: "{{creds.adminUser}}"
+      password: "{{creds.adminPass}}"
+    metaSortKey: -1608549298123
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: wrk_3c3b0b772cd34cff99a2cf499c2ebb74
+    parentId: null
+    modified: 1608549231242
+    created: 1608549231242
+    name: spring-boot-microservice-example
+    description: ""
+    scope: null
+    _type: workspace
+  - _id: req_b6d1529ae2264dd796caf0140d1ed108
+    parentId: wrk_3c3b0b772cd34cff99a2cf499c2ebb74
+    modified: 1608557382642
+    created: 1608557377047
+    url: "{{scheme}}://{{host}}:{{port}}/{{basePath}}/actuator/beans"
+    name: /actuator/beans
+    description: ""
+    method: GET
+    body: { }
+    parameters: [ ]
+    headers: [ ]
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: "{{creds.adminUser}}"
+      password: "{{creds.adminPass}}"
+    metaSortKey: -1608549298098
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_91bbba01b08d40a3ba664a74c6a58bb9
+    parentId: wrk_3c3b0b772cd34cff99a2cf499c2ebb74
+    modified: 1608557051021
+    created: 1608549298073
+    url: "{{scheme}}://{{host}}:{{port}}/{{basePath}}/actuator/health"
+    name: /actuator/health
+    description: ""
+    method: GET
+    body: { }
+    parameters: [ ]
+    headers: [ ]
+    authentication: { }
+    metaSortKey: -1608549298073
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_71a76b89f0a743ec8270329584349d9d
+    parentId: wrk_3c3b0b772cd34cff99a2cf499c2ebb74
+    modified: 1608557411483
+    created: 1608557402210
+    url: "{{scheme}}://{{host}}:{{port}}/{{basePath}}/actuator/heapdump"
+    name: /actuator/heapdump
+    description: ""
+    method: GET
+    body: { }
+    parameters: [ ]
+    headers: [ ]
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: "{{creds.adminUser}}"
+      password: "{{creds.adminPass}}"
+    metaSortKey: -1608549298023
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_6cbe696e40ce45368bf8c2407ff12665
+    parentId: wrk_3c3b0b772cd34cff99a2cf499c2ebb74
+    modified: 1608557452956
+    created: 1608557447942
+    url: "{{scheme}}://{{host}}:{{port}}/{{basePath}}/actuator/loggers"
+    name: /actuator/loggers
+    description: ""
+    method: GET
+    body: { }
+    parameters: [ ]
+    headers: [ ]
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: "{{creds.adminUser}}"
+      password: "{{creds.adminPass}}"
+    metaSortKey: -1608004246626.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_390ac724ccf94e57b8a47612c4acc49c
+    parentId: wrk_3c3b0b772cd34cff99a2cf499c2ebb74
+    modified: 1608557465163
+    created: 1608557461895
+    url: "{{scheme}}://{{host}}:{{port}}/{{basePath}}/actuator/mappings"
+    name: /actuator/mappings
+    description: ""
+    method: GET
+    body: { }
+    parameters: [ ]
+    headers: [ ]
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: "{{creds.adminUser}}"
+      password: "{{creds.adminPass}}"
+    metaSortKey: -1607731720928.25
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_cfe7775a497f4deca457124e4a7f1285
+    parentId: wrk_3c3b0b772cd34cff99a2cf499c2ebb74
+    modified: 1608569074696
+    created: 1608557501953
+    url: " {{scheme}}://{{host}}:{{port}}/{{basePath}}/users"
+    name: /users
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"userName": "foo",
+        	"semail": "foo@bar.example.net"
+        }
+    parameters: [ ]
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: "{{creds.adminUser}}"
+      password: "{{creds.adminPass}}"
+    metaSortKey: -1607595458079.125
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_43b126d797e64a2ea00b7feffb4a061b
+    parentId: wrk_3c3b0b772cd34cff99a2cf499c2ebb74
+    modified: 1608561005690
+    created: 1608560964036
+    url: " {{scheme}}://{{host}}:{{port}}/{{basePath}}/users/{% prompt 'User ID',
+      '', '', '', false, true %}"
+    name: /users/{userId}
+    description: ""
+    method: GET
+    body: { }
+    parameters: [ ]
+    headers: [ ]
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: "{{creds.adminUser}}"
+      password: "{{creds.adminPass}}"
+    metaSortKey: -1607527326654.5625
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_aa1326dee948410b97e50d5e668ceb4c
+    parentId: wrk_3c3b0b772cd34cff99a2cf499c2ebb74
+    modified: 1608570451921
+    created: 1608561026708
+    url: " {{scheme}}://{{host}}:{{port}}/{{basePath}}/users/{% prompt 'User ID',
+      '', '', '', false, true %}"
+    name: /users/{userId}
+    description: ""
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"userName": "{% prompt 'userName', '', '', '', false, true %}",
+        	"email": "{% prompt 'email', '', '', '', false, true %}"
+        }
+    parameters: [ ]
+    headers:
+      - name: Content-Type
+        value: application/json
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: "{{creds.adminUser}}"
+      password: "{{creds.adminPass}}"
+    metaSortKey: -1607493260942.2812
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_cc70e2c570244fe8a91d5714e90b5909
+    parentId: wrk_3c3b0b772cd34cff99a2cf499c2ebb74
+    modified: 1608561077014
+    created: 1608561069936
+    url: " {{scheme}}://{{host}}:{{port}}/{{basePath}}/users/{% prompt 'User ID',
+      '', '', '', false, true %}"
+    name: /users/{userId}
+    description: ""
+    method: DELETE
+    body: { }
+    parameters: [ ]
+    headers: [ ]
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: "{{creds.adminUser}}"
+      password: "{{creds.adminPass}}"
+    metaSortKey: -1607493260892.2812
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_f0118dfa583189106637572b103cc1a255a32e4e
+    parentId: wrk_3c3b0b772cd34cff99a2cf499c2ebb74
+    modified: 1608549231377
+    created: 1608549231377
+    name: Base Environment
+    data: { }
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1608549231378
+    _type: environment
+  - _id: jar_f0118dfa583189106637572b103cc1a255a32e4e
+    parentId: wrk_3c3b0b772cd34cff99a2cf499c2ebb74
+    modified: 1608570456142
+    created: 1608549231380
+    name: Default Jar
+    cookies:
+      - key: JSESSIONID
+        value: 3BC3FE3DD4F9BC4DCC5F767F178A4D0C
+        domain: 0:0:0:0:0:0:0:1
+        path: /api/v1/usermgmt
+        httpOnly: true
+        hostOnly: true
+        creation: 2020-12-21T14:19:50.997Z
+        lastAccessed: 2020-12-21T16:05:45.889Z
+        id: "8088371277482225"
+      - key: JSESSIONID
+        value: 06E6496332B3128307C5592AEC277FDD
+        domain: localhost
+        path: /api/v1/usermgmt
+        httpOnly: true
+        hostOnly: true
+        creation: 2020-12-21T14:25:33.117Z
+        lastAccessed: 2020-12-21T17:07:36.141Z
+        id: "5587087344992063"
+    _type: cookie_jar
+  - _id: spc_1532df35dad241a38921ac4bc10f1f7d
+    parentId: wrk_3c3b0b772cd34cff99a2cf499c2ebb74
+    modified: 1608549231258
+    created: 1608549231258
+    fileName: spring-boot-microservice-example
+    contents: ""
+    contentType: yaml
+    _type: api_spec
+  - _id: env_8dd9ae577a3e4560b2832848f1468fa3
+    parentId: env_f0118dfa583189106637572b103cc1a255a32e4e
+    modified: 1608557125696
+    created: 1608549241617
+    name: Local
+    data:
+      scheme: http
+      host: localhost
+      port: 8080
+      basePath: api/v1/usermgmt
+      creds:
+        adminUser: admin
+        adminPass: admin
+    dataPropertyOrder:
+      "&":
+        - scheme
+        - host
+        - port
+        - basePath
+        - creds
+      "&~|creds":
+        - adminUser
+        - adminPass
+    color: "#ff0000"
+    isPrivate: false
+    metaSortKey: 1608549241617
+    _type: environment
