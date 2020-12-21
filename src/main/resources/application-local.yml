@@ -1,7 +1,22 @@
-logging:
-  level:
-    root: INFO
+logging.level.root: INFO
+
+management.endpoints.web.exposure.include: '*'
 
 server:
+  error:
+    include-message: always
+    include-stacktrace: on_trace_param
   port: 8080
-  servlet.context-path: /api/v1/example
+  servlet.context-path: /api/v1/usermgmt
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:userdb
+    username: sa
+    password: password
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+

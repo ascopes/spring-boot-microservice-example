@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="run-application-debug" type="Application" factoryName="Application" singleton="false">
-    <option name="MAIN_CLASS_NAME" value="io.ascopes.springboot.microserviceexample.App" />
+    <option name="MAIN_CLASS_NAME" value="io.ascopes.springboot.usermgmt.App" />
     <module name="spring-boot-microservice-example" />
     <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=local --spring.output.ansi.enabled=ALWAYS" />
     <option name="VM_PARAMETERS" value="-ea" />
