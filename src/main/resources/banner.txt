@@ -1,0 +1,17 @@
+${AnsiColor.RED}  _____                           _                                                                      ${AnsiColor.DEFAULT}
+${AnsiColor.RED} | ____|_  ____ _ _ __ ___  _ __ | | ___                                                                 ${AnsiColor.DEFAULT}
+${AnsiColor.RED} |  _| \ \/ / _` | '_ ` _ \| '_ \| |/ _ \    ${AnsiColor.YELLOW}${application.version:Unversioned Build} ${AnsiColor.DEFAULT}
+${AnsiColor.RED} | |___ >  < (_| | | | | | | |_) | |  __/    ${AnsiColor.CYAN}Spring Boot ${spring-boot.version}         ${AnsiColor.DEFAULT}
+${AnsiColor.RED} |_____/_/\_\__,_|_| |_| |_| .__/|_|\___|                                                                ${AnsiColor.DEFAULT}
+${AnsiColor.RED}                           |_|                                                                           ${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}      ____             _                                                                               ${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}     / ___| _ __  _ __(_)_ __   __ _                                                                   ${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}     \___ \| '_ \| '__| | '_ \ / _` |                                                                  ${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}      ___) | |_) | |  | | | | | (_| |                                                                  ${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}     |____/| .__/|_|  |_|_| |_|\__, |                                                                  ${AnsiColor.DEFAULT}
+${AnsiColor.GREEN}           |_|                 |___/                                                                   ${AnsiColor.DEFAULT}
+${AnsiColor.BLUE}          __  __ _                                    _                                                 ${AnsiColor.DEFAULT}
+${AnsiColor.BLUE}         |  \/  (_) ___ _ __ ___  ___  ___ _ ____   _(_) ___ ___                                        ${AnsiColor.DEFAULT}
+${AnsiColor.BLUE}         | |\/| | |/ __| '__/ _ \/ __|/ _ \ '__\ \ / / |/ __/ _ \                                       ${AnsiColor.DEFAULT}
+${AnsiColor.BLUE}         | |  | | | (__| | | (_) \__ \  __/ |   \ V /| | (_|  __/                                       ${AnsiColor.DEFAULT}
+${AnsiColor.BLUE}         |_|  |_|_|\___|_|  \___/|___/\___|_|    \_/ |_|\___\___|                                       ${AnsiColor.DEFAULT}

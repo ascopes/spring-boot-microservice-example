@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="run-application-trace" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="io.ascopes.springboot.microserviceexample.App" />
+    <module name="spring-boot-microservice-example" />
+    <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=local --spring.output.ansi.enabled=ALWAYS" />
+    <option name="VM_PARAMETERS" value="-ea" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

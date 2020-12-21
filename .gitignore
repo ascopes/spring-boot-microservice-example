@@ -1,0 +1,10 @@
+.idea/
+*.iml
+
+target/
+build/
+out/
+
+*.sav
+*.tmp
+*.db
