@@ -42,7 +42,7 @@ public class UsersController {
     private final UserRepository userRepository;
 
     @GetMapping("/{userId}")
-    public ResponseEntity<?> getUser(@Valid @Size(min = 10) @PathVariable String userId) {
+    public ResponseEntity<?> getUser(@Valid @NotNull @PathVariable String userId) {
         log.info("GET userId={}", userId);
 
         val user = userRepository
