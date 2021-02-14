@@ -1,6 +1,8 @@
 package io.ascopes.springboot.usermgmt.model.request;
 
 import io.ascopes.springboot.usermgmt.validation.Groups;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import lombok.Data;
 import org.springframework.validation.annotation.Validated;
 

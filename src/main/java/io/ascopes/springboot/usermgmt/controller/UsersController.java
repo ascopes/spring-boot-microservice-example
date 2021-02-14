@@ -7,6 +7,16 @@ import io.ascopes.springboot.usermgmt.model.request.UserBody;
 import io.ascopes.springboot.usermgmt.repository.UserRepository;
 import io.ascopes.springboot.usermgmt.validation.Groups;
 import io.ascopes.springboot.usermgmt.validation.UserId;
+import io.swagger.annotations.Example;
+import io.swagger.annotations.ExampleProperty;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.headers.Header;
+import io.swagger.v3.oas.annotations.links.Link;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
@@ -24,6 +34,7 @@ import java.util.Locale;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 /**
  * User manipulation endpoints.
@@ -49,6 +60,24 @@ public class UsersController {
      * @param userId the user ID to look up.
      * @return the user object in a 200 OK response.
      */
+    @Operation(
+        operationId = "getUser",
+        summary = "Get a user by an ID",
+        description = "Look up the ID in the database and return the corresponding object if it exists",
+        parameters = @Parameter(name = "userId", description = "The user ID", required = true),
+        responses = {
+            @ApiResponse(
+                description = "The user was found",
+                responseCode = "200",
+                links = {
+                    @Link(operationId = "postUser"),
+                    @Link(operationId = "putUser"),
+                    @Link(operationId = "deleteUser"),
+                }
+                // etc...
+            )
+        }
+    )
     @GetMapping("/{userId}")
     public ResponseEntity<?> getUser(@Valid @NotBlank @UserId @PathVariable String userId) {
         log.info("GET userId={}", userId);
@@ -77,6 +106,7 @@ public class UsersController {
      * @param body        the new user to create.
      * @return the created user in a 201 Created response.
      */
+    @Operation(operationId = "postUser")
     @PostMapping
     @Transactional
     @Validated(Groups.OnCreateOnly.class)
@@ -117,6 +147,7 @@ public class UsersController {
      * @param userBody the updated user body to use to update the entity with.
      * @return a 200 OK with the updated user object in the body.
      */
+    @Operation(operationId = "putUser")
     @PutMapping("/{userId}")
     @Transactional
     public ResponseEntity<?> updateUser(@Valid @PathVariable @UserId String userId,
@@ -156,6 +187,7 @@ public class UsersController {
      * @param userId the user ID to look up.
      * @return a 204 No Content response.
      */
+    @Operation(operationId = "deleteUser")
     @DeleteMapping("/{userId}")
     @Transactional
     public ResponseEntity<?> deleteUser(@Valid @PathVariable @UserId String userId) {

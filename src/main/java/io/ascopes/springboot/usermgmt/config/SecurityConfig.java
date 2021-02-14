@@ -40,12 +40,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         //@formatter:off
         security
             .httpBasic().and()
-            .authorizeRequests(http -> http
+            .authorizeRequests()
                 // MVC controller endpoints
                 .mvcMatchers(HttpMethod.GET, "/users/**").hasAnyRole(READ_USER_ROLE, ADMIN_ROLE)
                 .mvcMatchers(HttpMethod.POST, "/users/**").hasAnyRole(CREATE_USER_ROLE, ADMIN_ROLE)
                 .mvcMatchers(HttpMethod.PUT, "/users/**").hasAnyRole(UPDATE_USER_ROLE, ADMIN_ROLE)
                 .mvcMatchers(HttpMethod.DELETE, "/users/**").hasAnyRole(DELETE_USER_ROLE, ADMIN_ROLE)
+
+                // Swagger
+                .mvcMatchers("/docs", "/docs/**").permitAll()
 
                 // Actuator endpoints
                 .requestMatchers(to(HealthEndpoint.class)).permitAll()
@@ -53,8 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 // Anything else
                 .requestMatchers(AnyRequestMatcher.INSTANCE).denyAll()
-            )
-
+            .and()
             // Disable other stuff we don't care about.
             .csrf().disable()
             .cors().disable()

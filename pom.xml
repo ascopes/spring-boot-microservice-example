@@ -16,6 +16,7 @@
 
     <properties>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
+        <springfox-swagger.version>3.0.0</springfox-swagger.version>
 
         <java-bytecode.version>15</java-bytecode.version>
     </properties>
@@ -32,6 +33,12 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${mapstruct.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -65,9 +72,10 @@
         </dependency>
 
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
+            <!-- Generation of a Swagger documentation schemas on application startup. -->
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>${springfox-swagger.version}</version>
         </dependency>
     </dependencies>
 
@@ -113,12 +121,14 @@
                             <version>${project.parent.version}</version>
                         </path>
 
-                        <!-- Indexes the spring context at compile time to enable slightly faster startup times -->
+                        <!-- Indexes the spring context at compile time to enable slightly faster startup times.
+                             Disabled as it is messing with SpringFox, see https://github.com/springfox/springfox/issues/3730
+
                         <path>
                             <groupId>org.springframework</groupId>
                             <artifactId>spring-context-indexer</artifactId>
                             <version>${spring-framework.version}</version>
-                        </path>
+                        </path>-->
                     </annotationProcessorPaths>
                     <indentSize>4</indentSize>
                     <lineLength>120</lineLength>

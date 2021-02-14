@@ -20,3 +20,13 @@ server:
   servlet:
     context-path: /api/v1/usermgmt
 
+springfox:
+  documentation:
+    enabled: true
+    swagger-ui.base-url: /docs
+    openapi.v3.path: /docs/openapi3
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: DEBUG
