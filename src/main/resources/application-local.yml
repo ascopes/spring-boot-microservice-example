@@ -11,7 +11,6 @@ spring:
 management.endpoints.web.exposure.include: '*'
 
 server:
-
   error:
     include-message: always
     include-stacktrace: on_trace_param
@@ -20,3 +19,13 @@ server:
   servlet:
     context-path: /api/v1/usermgmt
 
+springfox:
+  documentation:
+    enabled: true
+    swagger-ui:
+      base-url: /
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: DEBUG

@@ -1,6 +1,7 @@
 package io.ascopes.springboot.usermgmt.config;
 
 import lombok.val;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.health.HealthEndpoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,9 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.util.matcher.AnyRequestMatcher;
+import springfox.boot.starter.autoconfigure.SpringfoxConfigurationProperties;
+import springfox.documentation.spring.web.SpringfoxWebConfiguration;
+import springfox.documentation.spring.web.SpringfoxWebMvcConfiguration;
 
 import java.util.Optional;
 
@@ -32,6 +36,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String DELETE_USER_ROLE = "DELETE_USER";
     private static final String ADMIN_ROLE = "ADMIN_USER";
 
+    @Autowired
+    private SpringfoxWebConfiguration springfoxConfig;
+
     /**
      * Configure HTTP rules.
      */
@@ -39,27 +46,34 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity security) throws Exception {
         //@formatter:off
         security
+            // Disable other stuff we don't care about.
+            .csrf().disable()
+            .cors().disable()
+            .requestCache().disable()
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+
+            // Set access control settings for each endpoint.
             .httpBasic().and()
-            .authorizeRequests(http -> http
+            .authorizeRequests()
+                .requestMatchers(AnyRequestMatcher.INSTANCE).permitAll();
+
+                /*
                 // MVC controller endpoints
                 .mvcMatchers(HttpMethod.GET, "/users/**").hasAnyRole(READ_USER_ROLE, ADMIN_ROLE)
                 .mvcMatchers(HttpMethod.POST, "/users/**").hasAnyRole(CREATE_USER_ROLE, ADMIN_ROLE)
                 .mvcMatchers(HttpMethod.PUT, "/users/**").hasAnyRole(UPDATE_USER_ROLE, ADMIN_ROLE)
                 .mvcMatchers(HttpMethod.DELETE, "/users/**").hasAnyRole(DELETE_USER_ROLE, ADMIN_ROLE)
 
+                // Swagger
+                .mvcMatchers("/swagger-ui/*").permitAll()
+
                 // Actuator endpoints
                 .requestMatchers(to(HealthEndpoint.class)).permitAll()
                 .requestMatchers(toAnyEndpoint()).hasRole(ADMIN_ROLE)
 
                 // Anything else
-                .requestMatchers(AnyRequestMatcher.INSTANCE).denyAll()
-            )
-
-            // Disable other stuff we don't care about.
-            .csrf().disable()
-            .cors().disable()
-            .requestCache().disable()
-            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .requestMatchers(AnyRequestMatcher.INSTANCE).denyAll();
+                 */
         //@formatter:on
     }
 
