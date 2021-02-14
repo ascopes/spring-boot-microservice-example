@@ -16,6 +16,10 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+
+/**
+ * Database entity description for a user.
+ */
 @Data
 @Entity
 @EntityListeners(AuditingEntityListener.class)

@@ -9,6 +9,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+/**
+ * The body of a request that operates on a user.
+ */
 @Data
 @Validated
 public class UserBody {

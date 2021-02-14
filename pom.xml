@@ -7,18 +7,31 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.0</version>
+        <version>2.4.2</version>
     </parent>
 
     <groupId>io.ascopes</groupId>
     <artifactId>spring-boot-microservice-example</artifactId>
-    <version>2020-12-21.1</version>
+    <version>2021-02-14.1</version>
+
+    <properties>
+        <mapstruct.version>1.4.2.Final</mapstruct.version>
+
+        <java-bytecode.version>15</java-bytecode.version>
+    </properties>
 
     <dependencies>
         <dependency>
             <!-- A portable Java SQL database to use for storage. -->
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+        </dependency>
+
+        <dependency>
+            <!-- Object mapping. Useful for automating request/response body conversions to entities. -->
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${mapstruct.version}</version>
         </dependency>
 
         <dependency>
@@ -32,10 +45,8 @@
         </dependency>
 
         <dependency>
-            <!-- This is not actually necessary. They just let the compiler lint some of your configs at compile time -->
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
+            <artifactId>spring-boot-starter-hateoas</artifactId>
         </dependency>
 
         <dependency>
@@ -56,7 +67,6 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.16</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -66,22 +76,54 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+
+                <executions>
+                    <execution>
+                        <goals>
+                            <!-- Inject version control info into the generated JAR. -->
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
                 <configuration>
-                    <annotationProcessors>
-                        <!-- These are not actually necessary. They just let the compiler lint some of your configs at compile time -->
-                        <annotationProcessor>org.springframework.boot.configurationprocessor.ConfigurationMetadataAnnotationProcessor</annotationProcessor>
-                        <annotationProcessor>lombok.launch.AnnotationProcessorHider$AnnotationProcessor</annotationProcessor>
-                    </annotationProcessors>
+                    <annotationProcessorPaths>
+                        <!-- Lombok support -->
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
 
-                    <!-- Compile for Java 8 -->
-                    <source>8</source>
-                    <target>8</target>
+                        <!-- Linting of mappings -->
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${mapstruct.version}</version>
+                        </path>
+
+                        <!-- Spring Boot config linting -->
+                        <path>
+                            <groupId>org.springframework.boot</groupId>
+                            <artifactId>spring-boot-configuration-processor</artifactId>
+                            <version>${project.parent.version}</version>
+                        </path>
+
+                        <!-- Indexes the spring context at compile time to enable slightly faster startup times -->
+                        <path>
+                            <groupId>org.springframework</groupId>
+                            <artifactId>spring-context-indexer</artifactId>
+                            <version>${spring-framework.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                    <indentSize>4</indentSize>
+                    <lineLength>120</lineLength>
+                    <release>${java-bytecode.version}</release>
+                    <useIncrementalCompilation>true</useIncrementalCompilation>
                 </configuration>
             </plugin>
         </plugins>

@@ -20,6 +20,9 @@ import java.util.stream.Stream;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
+/**
+ * Exception mapper.
+ */
 @AllArgsConstructor
 @ControllerAdvice
 @Slf4j

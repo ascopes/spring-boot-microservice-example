@@ -8,8 +8,15 @@ import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * Configure validation so that it can read error messages from the messages.properties
+ * resource.
+ */
 @Configuration
 public class ValidationConfig implements WebMvcConfigurer {
+    /**
+     * @return the message source to use.
+     */
     @Bean(autowireCandidate = false)
     ReloadableResourceBundleMessageSource validationMessageSource() {
         val source = new ReloadableResourceBundleMessageSource();
@@ -18,6 +25,9 @@ public class ValidationConfig implements WebMvcConfigurer {
         return source;
     }
 
+    /**
+     * @return the validator to use.
+     */
     @Override
     @Bean
     public Validator getValidator() {
